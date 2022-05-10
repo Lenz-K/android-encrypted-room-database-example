@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Encrypted Room DB Example</string>
+
+    <string name="enter_a_secret">Enter a secret to save in the database:</string>
+    <string name="save">Save</string>
+    <string name="all_the_secrets">All the secrets in the database:</string>
+    <string name="clear">clear database</string>
+</resources>
