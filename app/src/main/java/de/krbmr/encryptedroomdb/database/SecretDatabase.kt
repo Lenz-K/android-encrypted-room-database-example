@@ -5,6 +5,8 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
+const val DATABASE_NAME = "secret_database"
+
 @Database(entities = [Secret::class], version = 1)
 abstract class SecretDatabase : RoomDatabase() {
 
@@ -15,6 +17,9 @@ abstract class SecretDatabase : RoomDatabase() {
         @Volatile
         private var INSTANCE: SecretDatabase? = null
 
+        /**
+         * Returns the database instance. If the database does not exist yet, it will be created.
+         */
         fun getInstance(context: Context): SecretDatabase {
             synchronized(this) {
                 var instance = INSTANCE
@@ -27,11 +32,14 @@ abstract class SecretDatabase : RoomDatabase() {
             }
         }
 
+        /**
+         * Creates a database instance and returns it.
+         */
         private fun createDB(context: Context): SecretDatabase {
             return Room.databaseBuilder(
                 context.applicationContext,
                 SecretDatabase::class.java,
-                "secret_database"
+                DATABASE_NAME
             )
                 .fallbackToDestructiveMigration()
                 .build()
