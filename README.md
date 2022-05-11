@@ -17,7 +17,7 @@ Feel free to open a pull request with improvements.
 The branch `no-encryption` in this repository contains the source code of the app
 without the room database being encrypted.
 
-![](screenshots/screenshot_app.png)
+<img src="screenshots/screenshot_app.png" width="200"/>
 
 By analyzing the database file with `hexdump` it is possible to verify that the database is not encrypted.
 ```shell
